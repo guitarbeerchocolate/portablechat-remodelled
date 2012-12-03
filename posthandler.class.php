@@ -28,9 +28,9 @@ class posthandler
 
   function saveMessage()
   { 
-    $this->chat->setId($this->postObject->myid);
-    $this->chat->setMessage($this->postObject->mymessage);
-    echo $this->chat->saveEntry();    
+    $this->chat->setId($this->postObject->myid);    
+    $this->chat->setMessage($this->postObject->mymessage);    
+    echo $this->chat->saveEntry();
   }
 }
 new posthandler($_POST);

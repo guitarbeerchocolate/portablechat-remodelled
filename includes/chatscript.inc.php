@@ -8,8 +8,7 @@
     thisId = thisForm.find('#myid');
     thisMessage = thisForm.find('#mymessage');
     thisForm.hide();
-    $('img').show();
-    tinyMCE.triggerSave(true, true);
+    $('img').show();    
     $.post('posthandler.class.php',
     {
       method:'saveMessage',
@@ -20,8 +19,6 @@
       $('img').hide(),
       thisForm.show(),      
       $(data).hide().prependTo("#entries").slideDown(1500);
-      tinyMCE.activeEditor.setContent(''),
-      tinyMCE.activeEditor.focus()
     });
     return false;
   });

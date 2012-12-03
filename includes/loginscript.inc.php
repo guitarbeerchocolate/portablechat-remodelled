@@ -18,7 +18,7 @@
     }, function(data)
     {
       $('img').hide(),
-      thisForm.show(),       
+      thisForm.show(),
       window.location.replace(data)
     });
     return false;

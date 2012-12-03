@@ -2,7 +2,7 @@
 session_start();
 require_once 'classes/autoload.php';
 $config = NULL;
-$config = (object) parse_ini_file('classes/config.ini', true);
+$config = new config;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ include 'includes/jquery.inc.php';
 </head>
 <body>
 <h1>Portable chat</h1>
-<img src="<?php echo $config->IMAGE_LOC; ?>loading.gif" />
+<img src="<?php echo $config->values->IMAGE_LOC; ?>loading.gif" />
 <?php
 include 'includes/loginform.inc.php';
 include 'includes/loginscript.inc.php';

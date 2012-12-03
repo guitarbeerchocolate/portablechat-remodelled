@@ -27,10 +27,10 @@ class chat
 		foreach($result as $row)
 		{
 			echo '<article>';
-			echo $row['entry'];		
+			echo $row->entry;
 			echo '<footer>';
-			echo 'Posted by '.$this->getUsername($row['userid']);
-			echo '<br />on '.$row['datesaved'];			
+			echo 'Posted by '.$this->getUsername($row->userid);
+			echo '<br />on '.$row->datesaved;
 			echo '</footer>';
 			echo '</article>';
 		}	
@@ -40,12 +40,12 @@ class chat
 	{
 		$q = "SELECT * FROM users WHERE `id`='{$uid} LIMIT 1'";
 		$row = $this->db->singleRow($q);
-		return $row['username'];
+		return $row->username;
 	}
 
 	function saveEntry()
 	{
-		$q = "INSERT INTO chat (userid, entry) VALUES ('{$this->id}', '{$this->message}')"; 
+		$q = "INSERT INTO chat (userid, entry) VALUES ('{$this->id}', '{$this->message}')";		
 		$result = $this->db->query($q);
 		$callBack = '<article>';
 		$callBack .= $this->message;		

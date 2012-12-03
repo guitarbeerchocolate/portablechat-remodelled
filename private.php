@@ -1,6 +1,6 @@
 <?php
-session_start();
-if($_GET['sessionid']==session_id())
+@ session_start();
+if($_GET && $_GET['sessionid']==session_id())
 {
 	echo 'Welcome '.$_SESSION['AUTH_USERNAME'];	
 }
@@ -10,7 +10,7 @@ else
 }
 require_once 'classes/autoload.php';
 $config = NULL;
-$config = (object) parse_ini_file('classes/config.ini', true);
+$config = new config;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@ include 'includes/jquery.inc.php';
 </head>
 <body>
 <h1>Portable chat</h1>
-<img src="<?php echo $config->IMAGE_LOC; ?>loading.gif" />
+<img src="<?php echo $config->values->IMAGE_LOC; ?>loading.gif" />
 <?php
 include 'includes/chatform.inc.php';
 ?>
